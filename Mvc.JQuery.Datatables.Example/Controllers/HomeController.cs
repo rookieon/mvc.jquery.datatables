@@ -31,12 +31,14 @@ namespace Mvc.JQuery.Datatables.Example.Controllers
 
             return DataTablesResult.Create(users, dataTableParam, user => new UserView()
             {
-                Id = user.Id,
-                Name = new MvcHtmlString("<b>" + user.Name +"</b>"),
-                Email = user.Email,
                 Position = user.Position == null ? "" : user.Position.ToString(),
                 Number = user.Number,
-                Hired = user.Hired
+                Email = user.Email,
+                Name = new MvcHtmlString("<b>" + user.Name + "</b>"),
+                Hired = user.Hired,
+                someOtherInfo1 = "",
+                someOtherInfo2 = "",
+                someOtherInfo3 = string.Format("Id is {0}", user.Id)
             });
         }
         public DataTablesResult GetUsersUntyped(DataTablesParam dataTableParam)
@@ -92,15 +94,14 @@ namespace Mvc.JQuery.Datatables.Example.Controllers
 
     public class UserView
     {
-        public int Id { get; set; }
-        public MvcHtmlString Name { get; set; }
-
-        public string Email { get; set; }
-
         public string Position { get; set; }
-        public DateTimeOffset Hired { get; set; }
-
         public Numbers Number { get; set; }
+        public string Email { get; set; }
+        public MvcHtmlString Name { get; set; }
+        public DateTimeOffset Hired { get; set; }
+        public string someOtherInfo1 { get; set; }
+        public string someOtherInfo2 { get; set; }
+        public string someOtherInfo3 { get; set; }
     }
 
      

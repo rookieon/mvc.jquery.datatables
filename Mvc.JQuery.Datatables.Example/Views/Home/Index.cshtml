@@ -54,7 +54,10 @@ can also use
 @{
     var vm = Html.DataTableVm("table-id", (HomeController h) => h.GetUsers(null));
     vm.FilterOn("Position").Select("Engineer", "Tester", "Manager")
-      .FilterOn("Id").NumberRange();
+      .FilterOn("Id").NumberRange()
+      .FilterOn("SomeOtherInfo1").None()
+      .FilterOn("SomeOtherInfo2").None()
+      .FilterOn("SomeOtherInfo3").None();
 }
 @Html.Partial("DataTable", vm)
 
